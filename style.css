@@ -1,0 +1,324 @@
+/* =========================
+   GLOBAL
+========================= */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  padding-top: 90px; /* space for fixed navbar */
+  padding-bottom: 70px; /* space for fixed footer */
+  box-sizing: border-box;
+  background-image: url(https://img.freepik.com/free-vector/abstract-background-gradient-modern-design_677411-3055.jpg?semt=ais_hybrid);
+}
+/* =========================
+   NAVBAR
+========================= */
+
+.nav_header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #333;
+  color: #ffffff;
+  padding: 20px 0;
+  text-align: right;
+  z-index: 1000;
+  .title {
+    text-align: left;
+  }
+}
+
+.navbar a {
+  color: violet;
+  margin: 0 10px;
+  font-size: larger;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  color: white;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer.links {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+}
+
+footer.links a {
+  color: violet;
+  margin: 0 15px;
+  text-decoration: none;
+  position: relative;
+  font-size: 22px;
+  transition: 0.3s ease;
+}
+
+footer.links a:hover {
+  color: white;
+  transform: scale(1.2);
+}
+/* =========================
+   ICON TOOLTIP EFFECT
+========================= */
+
+/* Tooltip text */
+footer.links a::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #222;
+  color: white;
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+
+/* Show tooltip on hover */
+footer.links a:hover::after {
+  opacity: 1;
+  bottom: 45px;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+/* Hide all sections */
+.section {
+  display: none;
+  padding: 60px 100px;
+  color: #ffffff;
+}
+
+/* Show active section */
+.section.active {
+  display: block;
+  margin-top: 80px;
+  backdrop-filter: blur(5px);
+  transition: all 0.4s ease;
+  animation: fadeSlideUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+/* =========================
+   HOME SECTION LAYOUT
+========================= */
+
+#home.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  flex-wrap: wrap;
+}
+
+#about {
+  h2{
+    text-align: center;
+  }
+  .content_about {
+    text-align: center;
+    background: rgba(109, 105, 105, 0.264);
+    backdrop-filter: blur(5px);
+  }
+}
+#projects {
+  h1{
+    text-align: center;
+  }
+  h2{
+    text-align: center;
+  }
+  .content_project {
+    text-align: center;
+    background: rgba(109, 105, 105, 0.264);
+    backdrop-filter: blur(5px);
+    div{
+      margin: 10px;
+    }
+  }
+}
+
+/* Image */
+#image_home img {
+  max-width: 400px;
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* Text area */
+#content_home {
+  max-width: 600px;
+}
+
+/* Name */
+#content_home h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+/* Position */
+#content_home h3 {
+  margin: 10px 0 20px 0;
+  font-weight: normal;
+  color: #666;
+}
+
+/* Paragraph */
+#content_home p {
+  line-height: 1.6;
+}
+
+/* Button */
+.cv {
+  margin-top: 20px;
+}
+
+.cv button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background-color: #333;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cv button:hover {
+  background-color: #555;
+}
+
+.cv a {
+  color: white;
+  text-decoration: none;
+}
+
+/* =========================
+   OTHER SECTIONS STYLE
+========================= */
+#skills {
+  #heading {
+    display: flex;
+    justify-content: center;
+  }
+}
+#training {
+  #heading {
+    display: flex;
+    justify-content: center;
+  }
+}
+/* 
+#skills div div,
+#training div div,
+#projects div div{
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 6px;
+} */
+/* =========================
+   CARD ANIMATION EFFECTS
+========================= */
+
+/* Smooth entrance animation */
+#skills div div,
+#training div div,
+#projects div div {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(5px);
+  transition: all 0.4s ease;
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 6px;
+  animation: fadeSlideUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+/* Delay effect for each item */
+#skills div div:nth-child(1),
+#training div div:nth-child(1),
+#projects div div:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+#skills div div:nth-child(2),
+#training div div:nth-child(2),
+#projects div div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+#skills div div:nth-child(3),
+#training div div:nth-child(3),
+#projects div div:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+#skills div div:nth-child(4),
+#training div div:nth-child(4),
+#projects div div:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+#skills div div:nth-child(5),
+#training div div:nth-child(5),
+#projects div div:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+/* Hover effects */
+#skills div div:hover,
+#training div div:hover,
+#projects div div:hover {
+  transform: translateY(-8px) scale(1.05);
+  background: linear-gradient(45deg, violet, #6a5acd);
+  color: white;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+/* Keyframes */
+@keyframes fadeSlideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+  #home {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .section {
+    padding: 40px 20px;
+  }
+}
