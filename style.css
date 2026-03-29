@@ -20,7 +20,7 @@ body {
   width: 100%;
   background-color: #333;
   color: #ffffff;
-  padding: 20px 0;
+  padding: 5px 0;
   text-align: right;
   z-index: 1000;
   .title {
@@ -28,13 +28,17 @@ body {
   }
 }
 
-.navbar a {
+.navbar 
+{
+a {
   color: violet;
   margin: 0 10px;
   font-size: larger;
   text-decoration: none;
   font-weight: bold;
 }
+}
+
 
 .navbar a:hover {
   color: white;
@@ -129,30 +133,63 @@ footer.links a:hover::after {
 }
 
 #about {
-  h2{
+  h2 {
     text-align: center;
   }
   .content_about {
     text-align: center;
     background: rgba(109, 105, 105, 0.264);
     backdrop-filter: blur(5px);
+    div{
+      display: flex;
+      justify-content: center;
+    }
   }
 }
 #projects {
-  h1{
-    text-align: center;
-  }
-  h2{
+  h2 {
     text-align: center;
   }
   .content_project {
     text-align: center;
     background: rgba(109, 105, 105, 0.264);
     backdrop-filter: blur(5px);
-    div{
-      margin: 10px;
+    div {
+      padding: 10px;
+      display: flex;
+      justify-content: center;
     }
   }
+}
+
+#training{
+  .course{
+     div{
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+    }
+  }
+}
+
+#about .content_about:hover,
+#projects .content_project:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  background: rgba(109, 105, 105, 0.35);
+}
+
+/* Project inner div animation */
+#about .content_about div,
+#projects .content_project div {
+  padding: 10px;
+  transition: 0.3s ease;
+}
+#about .content_about:hover,
+#projects .content_project div:hover {
+  transform: scale(1.05);
+  color: violet;
 }
 
 /* Image */
@@ -240,8 +277,7 @@ footer.links a:hover::after {
 
 /* Smooth entrance animation */
 #skills div div,
-#training div div,
-#projects div div {
+#training div div {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(5px);
   transition: all 0.4s ease;
@@ -256,26 +292,22 @@ footer.links a:hover::after {
 
 /* Delay effect for each item */
 #skills div div:nth-child(1),
-#training div div:nth-child(1),
-#projects div div:nth-child(1) {
+#training div div:nth-child(1) {
   animation-delay: 0.1s;
 }
 
 #skills div div:nth-child(2),
-#training div div:nth-child(2),
-#projects div div:nth-child(2) {
+#training div div:nth-child(2) {
   animation-delay: 0.2s;
 }
 
 #skills div div:nth-child(3),
-#training div div:nth-child(3),
-#projects div div:nth-child(3) {
+#training div div:nth-child(3) {
   animation-delay: 0.3s;
 }
 
 #skills div div:nth-child(4),
-#training div div:nth-child(4),
-#projects div div:nth-child(4) {
+#training div div:nth-child(4) {
   animation-delay: 0.4s;
 }
 
@@ -287,8 +319,7 @@ footer.links a:hover::after {
 
 /* Hover effects */
 #skills div div:hover,
-#training div div:hover,
-#projects div div:hover {
+#training div div:hover {
   transform: translateY(-8px) scale(1.05);
   background: linear-gradient(45deg, violet, #6a5acd);
   color: white;
@@ -320,5 +351,72 @@ footer.links a:hover::after {
 
   .section {
     padding: 40px 20px;
+  }
+} /* =========================
+   MOBILE NAVBAR FIX
+========================= */
+
+/* @media (max-width: 768px) {
+  .navbar a {
+
+    display: flex;
+    margin: 8px 0;
+    justify-content: center;
+  }
+} */
+
+/* =========================
+   RESPONSIVE NAVBAR
+========================= */
+
+/* Hide menu icon on desktop */
+/* =========================
+   RESPONSIVE DROPDOWN NAVBAR
+========================= */
+
+.menu-icon {
+  display: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+
+  .nav_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .menu-icon {
+    display: block;
+    padding: 20px;
+  }
+
+  .navbar {
+    position: absolute;
+    top: 70px;   /* adjust based on header height */
+    left: 0;
+    width: 100%;
+    background: #333;
+
+    max-height: 0;
+    overflow: hidden;
+    flex-direction: column;
+    text-align: center;
+
+    transition: max-height 0.4s ease;
+  }
+
+  .navbar.active {
+    max-height: 300px;  /* enough height to show links */
+  }
+
+  .navbar a {
+    display: block;
+    padding: 12px 0;
   }
 }
